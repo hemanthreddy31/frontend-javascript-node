@@ -1,0 +1,47 @@
+<nav class="bg-gray-800 shadow-lg">
+    <div class="mx-auto px-4 py-2 max-w-7xl flex items-center justify-between">
+      <!-- Logo or Brand -->
+      <a href="#" class="text-white text-lg font-bold">ExtremeLearn</a>
+  
+      <!-- Mobile Menu Button (hidden on larger screens) -->
+      <button class="block lg:hidden text-white focus:outline-none">
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h16a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h16a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1z"/>
+        </svg>
+      </button>
+  
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex space-x-4 items-center">
+        <a routerLink="/home" class="text-white hover:text-gray-300">Home</a>
+        <a href="#" class="text-white hover:text-gray-300">Tests</a>
+        <a href="#" class="text-white hover:text-gray-300">Courses</a>
+        <a href="#" class="text-white hover:text-gray-300">Syllabus</a>
+      </div>
+  
+      <!-- Profile Section with rounded picture (adjust sizing as needed) -->
+      <div class="hidden lg:flex items-center space-x-2">
+        <div class="bg-white rounded-full overflow-hidden w-10 h-10">
+          <img src="./../../assets/images/hletter.png" alt="Profile Picture" class="w-full h-full object-cover" />
+        </div>
+        <a href="#" class="text-white hover:text-gray-300">Profile</a>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu (shown on smaller screens) -->
+    <div class="hidden lg:hidden bg-gray-800">
+      <a href="#" class="block py-2 px-4 text-white hover:bg-gray-700">Home</a>
+      <a href="#" class="block py-2 px-4 text-white hover:bg-gray-700">Tests</a>
+      <a href="#" class="block py-2 px-4 text-white hover:bg-gray-700">Courses</a>
+      <a href="#" class="block py-2 px-4 text-white hover:bg-gray-700">Syllabus</a>
+      <!-- Profile Section in Mobile Menu -->
+      <div class="border-t border-gray-700">
+        <a href="#" class="block py-2 px-4 text-white hover:bg-gray-700 flex items-center">
+          <div class="bg-white rounded-full overflow-hidden w-8 h-8">
+            <img src="profile.jpg" alt="Profile Picture" class="w-full h-full object-cover" />
+          </div>
+          <span class="ml-2">Profile</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  
