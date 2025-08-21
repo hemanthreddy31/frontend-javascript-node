@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Accessibility Features Demo</title>
+    <meta name="description" content="Comprehensive demonstration of form accessibility features including ARIA attributes, fieldset, legend, and validation.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background-color: #f9fafb;
+            padding: 2rem 1rem;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        .header {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        
+        fieldset {
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: #f9fafb;
+        }
+        
+        legend {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #7c3aed;
+            padding: 0 0.5rem;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .required::after { content: " *"; color: #ef4444; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        
+        input:invalid { border-color: #ef4444; }
+        input:valid:not(:placeholder-shown) { border-color: #10b981; }
+        
+        .help-text {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .error-message {
+            font-size: 0.875rem;
+            color: #ef4444;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        input:invalid + .error-message { display: block; }
+        
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input, .radio-item input {
+            width: auto;
+            margin: 0;
+        }
+        
+        .accessibility-highlight {
+            background-color: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-left: 4px solid #f59e0b;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus { top: 6px; }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Form Accessibility Features Demo</h1>
+            <p>Comprehensive guide to accessible forms with ARIA attributes and validation</p>
+        </header>
+        
+        <main id="main-content">
+            <!-- Fieldset and Legend Demo -->
+            <section class="demo-section">
+                <h2 class="section-title">Fieldset and Legend</h2>
+                <p>Fieldset groups related form controls, while legend provides a caption for the group.</p>
+                
+                <form>
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name" class="required">First Name</label>
+                                <input type="text" id="first-name" name="firstName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name" class="required">Last Name</label>
+                                <input type="text" id="last-name" name="lastName" required>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Contact Preferences</legend>
+                        
+                        <div class="radio-group" role="radiogroup" aria-labelledby="contact-legend">
+                            <div class="radio-item">
+                                <input type="radio" id="contact-email" name="contact" value="email" required>
+                                <label for="contact-email">Email</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="contact-phone" name="contact" value="phone" required>
+                                <label for="contact-phone">Phone</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="contact-mail" name="contact" value="mail" required>
+                                <label for="contact-mail">Mail</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                
+                <div class="accessibility-highlight">
+                    <strong>Accessibility Benefits:</strong>
+                    <ul>
+                        <li>Screen readers announce the legend when entering the fieldset</li>
+                        <li>Groups related controls for better navigation</li>
+                        <li>Provides context for form sections</li>
+                    </ul>
+                </div>
+                
+                <div class="code-snippet">
+&lt;fieldset&gt;
+    &lt;legend&gt;Personal Information&lt;/legend&gt;
+    &lt;!-- form controls --&gt;
+&lt;/fieldset&gt;
+                </div>
+            </section>
+            
+            <!-- Label Association Demo -->
+            <section class="demo-section">
+                <h2 class="section-title">Label Association</h2>
+                <p>Proper label association is crucial for accessibility and usability.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="explicit-label">Explicit Label (for attribute)</label>
+                        <input type="text" id="explicit-label" name="explicitLabel">
+                        <div class="help-text">Label explicitly associated with input via 'for' attribute</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            Implicit Label (wrapping)
+                            <input type="text" name="implicitLabel">
+                        </label>
+                        <div class="help-text">Input wrapped inside label element</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="aria-label-input" name="ariaLabel" aria-label="Input with ARIA label" placeholder="ARIA labeled input">
+                        <div class="help-text">Input with aria-label attribute (no visible label)</div>
+                    </div>
+                </form>
+                
+                <div class="accessibility-highlight">
+                    <strong>Best Practices:</strong>
+                    <ul>
+                        <li>Always provide labels for form controls</li>
+                        <li>Use explicit labels (for/id) when possible</li>
+                        <li>Use aria-label only when visible labels aren't appropriate</li>
+                    </ul>
+                </div>
+                
+                <div class="code-snippet">
+&lt;!-- Explicit label --&gt;
+&lt;label for="input-id"&gt;Label Text&lt;/label&gt;
+&lt;input type="text" id="input-id"&gt;
+
+&lt;!-- Implicit label --&gt;
+&lt;label&gt;Label Text &lt;input type="text"&gt;&lt;/label&gt;
+
+&lt;!-- ARIA label --&gt;
+&lt;input type="text" aria-label="Label Text"&gt;
+                </div>
+            </section>
+            
+            <!-- ARIA Attributes Demo -->
+            <section class="demo-section">
+                <h2 class="section-title">ARIA Attributes</h2>
+                <p>ARIA attributes enhance accessibility by providing additional context and relationships.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="aria-described">Username</label>
+                        <input type="text" 
+                               id="aria-described" 
+                               name="username" 
+                               required 
+                               minlength="3" 
+                               maxlength="20"
+                               aria-describedby="username-help username-error"
+                               aria-invalid="false">
+                        <div id="username-help" class="help-text">
+                            Username must be 3-20 characters long, letters and numbers only
+                        </div>
+                        <div id="username-error" class="error-message">
+                            Please enter a valid username
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password-input">Password</label>
+                        <input type="password" 
+                               id="password-input" 
+                               name="password" 
+                               required 
+                               minlength="8"
+                               aria-describedby="password-requirements"
+                               aria-invalid="false">
+                        <div id="password-requirements" class="help-text">
+                            Password must be at least 8 characters with uppercase, lowercase, and numbers
+                        </div>
+                    </div>
+                    
+                    <fieldset>
+                        <legend>Notification Preferences</legend>
+                        <div class="checkbox-group" role="group" aria-labelledby="notifications-legend">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="notify-email" name="notifications" value="email">
+                                <label for="notify-email">Email notifications</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="notify-sms" name="notifications" value="sms">
+                                <label for="notify-sms">SMS notifications</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="notify-push" name="notifications" value="push">
+                                <label for="notify-push">Push notifications</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                
+                <div class="accessibility-highlight">
+                    <strong>Key ARIA Attributes:</strong>
+                    <ul>
+                        <li><code>aria-describedby</code>: Links to descriptive text</li>
+                        <li><code>aria-labelledby</code>: References element(s) that label the current element</li>
+                        <li><code>aria-invalid</code>: Indicates validation state</li>
+                        <li><code>aria-required</code>: Indicates required fields</li>
+                        <li><code>role</code>: Defines the element's purpose</li>
+                    </ul>
+                </div>
+                
+                <div class="code-snippet">
+&lt;input type="text" 
+       aria-describedby="help-text error-text"
+       aria-invalid="false"
+       aria-required="true"&gt;
+&lt;div id="help-text"&gt;Help text&lt;/div&gt;
+&lt;div id="error-text"&gt;Error message&lt;/div&gt;
+                </div>
+            </section>
+            
+            <!-- HTML5 Validation Demo -->
+            <section class="demo-section">
+                <h2 class="section-title">HTML5 Validation</h2>
+                <p>Built-in HTML5 validation with custom patterns and messages.</p>
+                
+                <form id="validation-form" novalidate>
+                    <div class="form-group">
+                        <label for="email-validation" class="required">Email</label>
+                        <input type="email" 
+                               id="email-validation" 
+                               name="email" 
+                               required 
+                               aria-describedby="email-validation-help"
+                               placeholder="user@example.com">
+                        <div id="email-validation-help" class="help-text">
+                            Enter a valid email address
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone-validation">Phone Number</label>
+                        <input type="tel" 
+                               id="phone-validation" 
+                               name="phone" 
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               title="Format: 123-456-7890"
+                               aria-describedby="phone-validation-help"
+                               placeholder="123-456-7890">
+                        <div id="phone-validation-help" class="help-text">
+                            Format: XXX-XXX-XXXX
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age-validation" class="required">Age</label>
+                        <input type="number" 
+                               id="age-validation" 
+                               name="age" 
+                               required 
+                               min="18" 
+                               max="100"
+                               aria-describedby="age-validation-help">
+                        <div id="age-validation-help" class="help-text">
+                            Must be between 18 and 100 years old
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website-validation">Website</label>
+                        <input type="url" 
+                               id="website-validation" 
+                               name="website" 
+                               pattern="https://.*"
+                               title="Must start with https://"
+                               aria-describedby="website-validation-help"
+                               placeholder="https://example.com">
+                        <div id="website-validation-help" class="help-text">
+                            Must be a secure URL (https://)
+                        </div>
+                    </div>
+                    
+                    <button type="submit" style="background: #7c3aed; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer;">
+                        Validate Form
+                    </button>
+                </form>
+                
+                <div class="accessibility-highlight">
+                    <strong>Validation Features:</strong>
+                    <ul>
+                        <li><code>required</code>: Makes field mandatory</li>
+                        <li><code>pattern</code>: Custom regex validation</li>
+                        <li><code>min/max</code>: Numeric range validation</li>
+                        <li><code>title</code>: Provides validation hint</li>
+                        <li><code>novalidate</code>: Disables browser validation for custom handling</li>
+                    </ul>
+                </div>
+                
+                <div class="code-snippet">
+&lt;input type="email" required&gt;
+&lt;input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"&gt;
+&lt;input type="number" min="18" max="100"&gt;
+&lt;input type="url" pattern="https://.*"&gt;
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Custom validation handling
+        document.getElementById('validation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const inputs = this.querySelectorAll('input');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    isValid = false;
+                    input.setAttribute('aria-invalid', 'true');
+                } else {
+                    input.setAttribute('aria-invalid', 'false');
+                }
+            });
+            
+            if (isValid) {
+                alert('Form is valid! (Demo only - no actual submission)');
+            } else {
+                alert('Please correct the errors in the form');
+                // Focus first invalid field
+                const firstInvalid = this.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+            }
+        });
+        
+        // Real-time validation feedback
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !this.checkValidity()) {
+                    this.setAttribute('aria-invalid', 'true');
+                } else {
+                    this.setAttribute('aria-invalid', 'false');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

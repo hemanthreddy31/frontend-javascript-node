@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Controls Showcase</title>
+    <meta name="description" content="Comprehensive showcase of HTML5 form controls with validation and accessibility examples.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background-color: #f3f4f6;
+            padding: 2rem 1rem;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .control-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .required::after { content: " *"; color: #ef4444; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        input:focus { outline: none; border-color: #059669; box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1); }
+        input:invalid:not(:focus) { border-color: #ef4444; }
+        input:valid:not(:placeholder-shown) { border-color: #10b981; }
+        
+        .help-text { font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem; }
+        
+        .range-container { display: flex; align-items: center; gap: 1rem; }
+        .range-value { min-width: 3rem; text-align: center; font-weight: 600; color: #059669; }
+        .color-preview { width: 60px; height: 40px; border: 2px solid #d1d5db; border-radius: 6px; margin-left: 1rem; }
+        
+        .validation-info {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .code-example {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>HTML5 Form Controls Showcase</h1>
+            <p>Advanced form controls with validation and accessibility</p>
+        </header>
+        
+        <main class="controls-grid">
+            <!-- Email Input -->
+            <div class="control-card">
+                <h2 class="control-title">📧 Email Input</h2>
+                <div class="form-group">
+                    <label for="email-basic" class="required">Email Address</label>
+                    <input type="email" id="email-basic" required placeholder="user@example.com" autocomplete="email">
+                    <div class="help-text">Built-in email validation</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Automatic validation, mobile keyboard optimization
+                </div>
+                
+                <div class="code-example">
+&lt;input type="email" required autocomplete="email"&gt;
+                </div>
+            </div>
+            
+            <!-- URL Input -->
+            <div class="control-card">
+                <h2 class="control-title">🌐 URL Input</h2>
+                <div class="form-group">
+                    <label for="url-basic">Website URL</label>
+                    <input type="url" id="url-basic" placeholder="https://example.com" autocomplete="url">
+                    <div class="help-text">Validates web addresses</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> URL format validation, protocol checking
+                </div>
+                
+                <div class="code-example">
+&lt;input type="url" autocomplete="url"&gt;
+                </div>
+            </div>
+            
+            <!-- Tel Input -->
+            <div class="control-card">
+                <h2 class="control-title">📱 Telephone Input</h2>
+                <div class="form-group">
+                    <label for="tel-basic">Phone Number</label>
+                    <input type="tel" id="tel-basic" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" autocomplete="tel">
+                    <div class="help-text">Format: XXX-XXX-XXXX</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Mobile keyboard, pattern validation
+                </div>
+                
+                <div class="code-example">
+&lt;input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"&gt;
+                </div>
+            </div>
+            
+            <!-- Number Input -->
+            <div class="control-card">
+                <h2 class="control-title">🔢 Number Input</h2>
+                <div class="form-group">
+                    <label for="number-basic">Age</label>
+                    <input type="number" id="number-basic" min="0" max="120" step="1" placeholder="25">
+                    <div class="help-text">Enter age (0-120)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="number-decimal">Price</label>
+                    <input type="number" id="number-decimal" min="0" step="0.01" placeholder="19.99">
+                    <div class="help-text">Price with decimals</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Min/max constraints, step increments
+                </div>
+                
+                <div class="code-example">
+&lt;input type="number" min="0" max="120" step="1"&gt;
+                </div>
+            </div>
+            
+            <!-- Date Input -->
+            <div class="control-card">
+                <h2 class="control-title">📅 Date Input</h2>
+                <div class="form-group">
+                    <label for="date-basic">Birth Date</label>
+                    <input type="date" id="date-basic" min="1900-01-01" max="2010-12-31" autocomplete="bday">
+                    <div class="help-text">Select your birth date</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="datetime-local">Appointment</label>
+                    <input type="datetime-local" id="datetime-local">
+                    <div class="help-text">Date and time selection</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Native date picker, date range validation
+                </div>
+                
+                <div class="code-example">
+&lt;input type="date" min="1900-01-01" max="2010-12-31"&gt;
+                </div>
+            </div>
+            
+            <!-- Color Input -->
+            <div class="control-card">
+                <h2 class="control-title">🎨 Color Input</h2>
+                <div class="form-group">
+                    <label for="color-basic">Favorite Color</label>
+                    <div style="display: flex; align-items: center;">
+                        <input type="color" id="color-basic" value="#059669">
+                        <div class="color-preview" id="colorPreview" style="background-color: #059669;"></div>
+                    </div>
+                    <div class="help-text">Choose your favorite color</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Native color picker, hex value output
+                </div>
+                
+                <div class="code-example">
+&lt;input type="color" value="#059669"&gt;
+                </div>
+            </div>
+            
+            <!-- Range Input -->
+            <div class="control-card">
+                <h2 class="control-title">🎚️ Range Input</h2>
+                <div class="form-group">
+                    <label for="range-basic">Volume Level</label>
+                    <div class="range-container">
+                        <input type="range" id="range-basic" min="0" max="100" value="50" step="1">
+                        <div class="range-value" id="rangeValue">50</div>
+                    </div>
+                    <div class="help-text">Adjust volume (0-100)</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Slider interface, min/max/step control
+                </div>
+                
+                <div class="code-example">
+&lt;input type="range" min="0" max="100" step="1"&gt;
+                </div>
+            </div>
+            
+            <!-- Search Input -->
+            <div class="control-card">
+                <h2 class="control-title">🔍 Search Input</h2>
+                <div class="form-group">
+                    <label for="search-basic">Search</label>
+                    <input type="search" id="search-basic" placeholder="Search products..." autocomplete="off">
+                    <div class="help-text">Search with clear button</div>
+                </div>
+                
+                <div class="validation-info">
+                    <strong>Features:</strong> Clear button, search-optimized keyboard
+                </div>
+                
+                <div class="code-example">
+&lt;input type="search" placeholder="Search..."&gt;
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Color picker preview
+        document.getElementById('color-basic').addEventListener('input', function() {
+            document.getElementById('colorPreview').style.backgroundColor = this.value;
+        });
+        
+        // Range slider value display
+        document.getElementById('range-basic').addEventListener('input', function() {
+            document.getElementById('rangeValue').textContent = this.value;
+        });
+    </script>
+</body>
+</html>
