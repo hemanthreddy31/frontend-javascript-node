@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Semantic Elements Showcase - Complete Guide</title>
+    <meta name="description" content="Comprehensive showcase of HTML5 semantic elements including header, nav, main, section, article, aside, footer, and more with practical examples.">
+    <meta name="keywords" content="HTML5, semantic elements, web development, accessibility, SEO">
+    <meta name="author" content="HTML Fundamentals Guide">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Semantic element styling for demonstration */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        nav {
+            background-color: #343a40;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover, nav a:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        main {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        
+        article {
+            background-color: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        
+        aside {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .element-demo {
+            border: 2px dashed #6c757d;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .element-label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #6c757d;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.1rem; }
+        h6 { font-size: 1rem; }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .accessibility-note {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        figcaption {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #495057;
+        }
+        
+        details {
+            margin: 1rem 0;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+        
+        summary {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        details[open] summary {
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .details-content {
+            padding: 1rem;
+        }
+        
+        mark {
+            background-color: #fff3cd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        time {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        address {
+            font-style: italic;
+            color: #6c757d;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- HEADER Element -->
+    <header role="banner" class="element-demo">
+        <span class="element-label">&lt;header&gt;</span>
+        <div class="container">
+            <h1>HTML5 Semantic Elements Showcase</h1>
+            <p>A comprehensive guide to modern semantic HTML structure</p>
+            <div class="accessibility-note">
+                <strong>Accessibility:</strong> Header uses <code>role="banner"</code> and contains the main site title and tagline.
+            </div>
+        </div>
+    </header>
+    
+    <!-- NAV Element -->
+    <nav role="navigation" aria-label="Main navigation" class="element-demo">
+        <span class="element-label">&lt;nav&gt;</span>
+        <div class="container">
+            <ul>
+                <li><a href="#header-section">Header</a></li>
+                <li><a href="#nav-section">Navigation</a></li>
+                <li><a href="#main-section">Main</a></li>
+                <li><a href="#section-element">Section</a></li>
+                <li><a href="#article-element">Article</a></li>
+                <li><a href="#aside-element">Aside</a></li>
+                <li><a href="#footer-section">Footer</a></li>
+                <li><a href="#other-elements">Other Elements</a></li>
+            </ul>
+            <div class="accessibility-note">
+                <strong>Accessibility:</strong> Navigation uses <code>role="navigation"</code> and <code>aria-label</code> for screen readers.
+            </div>
+        </div>
+    </nav>
+    
+    <!-- MAIN Element -->
+    <main id="main-content" role="main" class="element-demo">
+        <span class="element-label">&lt;main&gt;</span>
+        <div class="container">
+            <h2>Understanding HTML5 Semantic Elements</h2>
+            <p>
+                Semantic HTML elements provide meaning to your content, making it more accessible to screen readers, 
+                search engines, and other assistive technologies. This showcase demonstrates each semantic element 
+                with practical examples and accessibility considerations.
+            </p>
+            
+            <!-- SECTION Element Examples -->
+            <section id="section-element" aria-labelledby="section-heading" class="element-demo">
+                <span class="element-label">&lt;section&gt;</span>
+                <h3 id="section-heading">The Section Element</h3>
+                <p>
+                    The <code>&lt;section&gt;</code> element represents a thematic grouping of content, 
+                    typically with a heading. It's used to break up content into logical sections.
+                </p>
+                
+                <div class="code-example">
+&lt;section aria-labelledby="section-heading"&gt;
+    &lt;h3 id="section-heading"&gt;Section Title&lt;/h3&gt;
+    &lt;p&gt;Section content goes here...&lt;/p&gt;
+&lt;/section&gt;
+                </div>
+                
+                <div class="accessibility-note">
+                    <strong>Accessibility:</strong> Sections should have headings and can use <code>aria-labelledby</code> 
+                    to associate with their heading for better screen reader navigation.
+                </div>
+                
+                <!-- Nested sections example -->
+                <section aria-labelledby="nested-section">
+                    <h4 id="nested-section">Nested Section Example</h4>
+                    <p>Sections can be nested to create hierarchical content structure.</p>
+                    
+                    <section aria-labelledby="sub-section">
+                        <h5 id="sub-section">Sub-section</h5>
+                        <p>This is a sub-section within the main section, demonstrating proper nesting.</p>
+                    </section>
+                </section>
+            </section>
+            
+            <!-- ARTICLE Element Examples -->
+            <section id="article-element" aria-labelledby="article-heading" class="element-demo">
+                <span class="element-label">&lt;section&gt; containing &lt;article&gt; elements</span>
+                <h3 id="article-heading">The Article Element</h3>
+                <p>
+                    The <code>&lt;article&gt;</code> element represents a self-contained composition 
+                    that could be distributed independently, such as blog posts, news articles, or forum posts.
+                </p>
+                
+                <article class="element-demo" itemscope itemtype="https://schema.org/BlogPosting">
+                    <span class="element-label">&lt;article&gt;</span>
+                    <header>
+                        <h4 itemprop="headline">Understanding CSS Grid Layout</h4>
+                        <p class="article-meta">
+                            <time datetime="2024-08-21" itemprop="datePublished">Published: August 21, 2024</time>
+                            <span aria-hidden="true"> • </span>
+                            <span itemprop="author">By Jane Developer</span>
+                        </p>
+                    </header>
+                    
+                    <p itemprop="description">
+                        CSS Grid Layout is a powerful two-dimensional layout system that allows you to create 
+                        complex layouts with ease. This article explores the fundamentals of Grid and when to use it.
+                    </p>
+                    
+                    <footer>
+                        <p><small>Tags: CSS, Layout, Web Development</small></p>
+                    </footer>
+                </article>
+                
+                <article class="element-demo" itemscope itemtype="https://schema.org/NewsArticle">
+                    <span class="element-label">&lt;article&gt;</span>
+                    <header>
+                        <h4 itemprop="headline">New Web Accessibility Guidelines Released</h4>
+                        <p class="article-meta">
+                            <time datetime="2024-08-20" itemprop="datePublished">Published: August 20, 2024</time>
+                            <span aria-hidden="true"> • </span>
+                            <span itemprop="author">By Accessibility Team</span>
+                        </p>
+                    </header>
+                    
+                    <p itemprop="description">
+                        The W3C has released updated guidelines for web accessibility, focusing on mobile 
+                        accessibility and cognitive disabilities. Learn what this means for developers.
+                    </p>
+                    
+                    <footer>
+                        <p><small>Tags: Accessibility, WCAG, Standards</small></p>
+                    </footer>
+                </article>
+                
+                <div class="accessibility-note">
+                    <strong>Accessibility:</strong> Articles use structured data (microdata) and proper heading hierarchy. 
+                    Each article is self-contained and could stand alone.
+                </div>
+            </section>
+            
+            <!-- ASIDE Element Examples -->
+            <section id="aside-element" aria-labelledby="aside-heading" class="element-demo">
+                <span class="element-label">&lt;section&gt;</span>
+                <h3 id="aside-heading">The Aside Element</h3>
+                <p>
+                    The <code>&lt;aside&gt;</code> element represents content that is tangentially related 
+                    to the main content, such as sidebars, pull quotes, or advertising.
+                </p>
+                
+                <aside role="complementary" aria-labelledby="sidebar-heading" class="element-demo">
+                    <span class="element-label">&lt;aside&gt;</span>
+                    <h4 id="sidebar-heading">Related Resources</h4>
+                    <ul>
+                        <li><a href="#mdn-html">MDN HTML Reference</a></li>
+                        <li><a href="#w3c-spec">W3C HTML5 Specification</a></li>
+                        <li><a href="#accessibility-guide">Web Accessibility Guide</a></li>
+                    </ul>
+                    
+                    <h5>Quick Tip</h5>
+                    <p>
+                        <mark>Remember:</mark> Always test your semantic HTML with screen readers 
+                        to ensure proper accessibility.
+                    </p>
+                </aside>
+                
+                <aside role="note" aria-labelledby="pullquote" class="element-demo">
+                    <span class="element-label">&lt;aside&gt; (pullquote)</span>
+                    <blockquote id="pullquote">
+                        <p>
+                            "Semantic HTML is not just about SEO—it's about creating an inclusive web 
+                            that works for everyone, regardless of their abilities or the technology they use."
+                        </p>
+                        <footer>— Web Accessibility Expert</footer>
+                    </blockquote>
+                </aside>
+                
+                <div class="accessibility-note">
+                    <strong>Accessibility:</strong> Aside elements use appropriate roles (<code>complementary</code>, <code>note</code>) 
+                    and are properly labeled for screen readers.
+                </div>
+            </section>
+            
+            <!-- Other Semantic Elements -->
+            <section id="other-elements" aria-labelledby="other-heading" class="element-demo">
+                <span class="element-label">&lt;section&gt;</span>
+                <h3 id="other-heading">Other Important Semantic Elements</h3>
+                
+                <!-- FIGURE and FIGCAPTION -->
+                <h4>Figure and Figcaption</h4>
+                <figure class="element-demo">
+                    <span class="element-label">&lt;figure&gt;</span>
+                    <img src="https://via.placeholder.com/400x200/007bff/ffffff?text=Semantic+HTML+Structure" 
+                         alt="Diagram showing the hierarchical structure of semantic HTML elements in a typical webpage layout"
+                         width="400" 
+                         height="200"
+                         loading="lazy">
+                    <figcaption>
+                        <span class="element-label">&lt;figcaption&gt;</span>
+                        Visual representation of semantic HTML structure showing header, nav, main, sections, articles, aside, and footer elements
+                    </figcaption>
+                </figure>
+                
+                <!-- DETAILS and SUMMARY -->
+                <h4>Details and Summary (Interactive Elements)</h4>
+                <details class="element-demo">
+                    <span class="element-label">&lt;details&gt;</span>
+                    <summary>
+                        <span class="element-label">&lt;summary&gt;</span>
+                        Click to learn about the Details element
+                    </summary>
+                    <div class="details-content">
+                        <p>
+                            The <code>&lt;details&gt;</code> element creates a disclosure widget where 
+                            information is visible only when toggled. It's perfect for FAQs, 
+                            expandable content, and progressive disclosure.
+                        </p>
+                        <p>
+                            <strong>Accessibility:</strong> The details element is keyboard accessible 
+                            and announces its state to screen readers automatically.
+                        </p>
+                    </div>
+                </details>
+                
+                <!-- TIME Element -->
+                <h4>Time Element</h4>
+                <div class="element-demo">
+                    <span class="element-label">Examples of &lt;time&gt;</span>
+                    <p>
+                        This article was published on 
+                        <time datetime="2024-08-21T14:30:00+05:30">August 21, 2024 at 2:30 PM IST</time>.
+                    </p>
+                    <p>
+                        The event starts at <time datetime="19:00">7:00 PM</time> local time.
+                    </p>
+                    <p>
+                        The project deadline is <time datetime="2024-12-31">December 31, 2024</time>.
+                    </p>
+                </div>
+                
+                <!-- ADDRESS Element -->
+                <h4>Address Element</h4>
+                <address class="element-demo">
+                    <span class="element-label">&lt;address&gt;</span>
+                    <p>Contact information for this article:</p>
+                    <p>
+                        <strong>HTML Fundamentals Team</strong><br>
+                        Email: <a href="mailto:team@htmlfundamentals.com">team@htmlfundamentals.com</a><br>
+                        Website: <a href="https://htmlfundamentals.com">htmlfundamentals.com</a>
+                    </p>
+                </address>
+                
+                <!-- MARK Element -->
+                <h4>Mark Element (Highlighting)</h4>
+                <div class="element-demo">
+                    <span class="element-label">&lt;mark&gt;</span>
+                    <p>
+                        When searching for "semantic HTML", the results show that 
+                        <mark>semantic HTML</mark> is crucial for accessibility and SEO. 
+                        The term <mark>semantic HTML</mark> appears frequently in modern web development discussions.
+                    </p>
+                </div>
+                
+                <div class="accessibility-note">
+                    <strong>Accessibility Notes:</strong>
+                    <ul>
+                        <li><strong>Figure:</strong> Always include descriptive alt text for images</li>
+                        <li><strong>Details:</strong> Automatically keyboard accessible and screen reader friendly</li>
+                        <li><strong>Time:</strong> Use datetime attribute for machine-readable dates</li>
+                        <li><strong>Address:</strong> Only for contact information, not postal addresses</li>
+                        <li><strong>Mark:</strong> Indicates highlighted text, announced by screen readers</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Heading Hierarchy Example -->
+            <section aria-labelledby="heading-hierarchy" class="element-demo">
+                <span class="element-label">&lt;section&gt;</span>
+                <h3 id="heading-hierarchy">Proper Heading Hierarchy</h3>
+                <p>Semantic HTML requires a logical heading structure for accessibility and SEO:</p>
+                
+                <div class="code-example">
+&lt;h1&gt;Page Title (only one per page)&lt;/h1&gt;
+  &lt;h2&gt;Main Section&lt;/h2&gt;
+    &lt;h3&gt;Subsection&lt;/h3&gt;
+      &lt;h4&gt;Sub-subsection&lt;/h4&gt;
+        &lt;h5&gt;Minor heading&lt;/h5&gt;
+          &lt;h6&gt;Smallest heading&lt;/h6&gt;
+  &lt;h2&gt;Another Main Section&lt;/h2&gt;
+    &lt;h3&gt;Another Subsection&lt;/h3&gt;
+                </div>
+                
+                <div class="accessibility-note">
+                    <strong>Accessibility:</strong> Screen readers use heading structure for navigation. 
+                    Never skip heading levels (don't go from h2 to h4 without h3).
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- FOOTER Element -->
+    <footer role="contentinfo" class="element-demo">
+        <span class="element-label">&lt;footer&gt;</span>
+        <div class="container">
+            <h2 style="color: white;">Site Information</h2>
+            <p>&copy; 2024 HTML Fundamentals Showcase. Educational content for learning semantic HTML.</p>
+            
+            <nav aria-label="Footer navigation">
+                <ul style="justify-content: center; margin-top: 1rem;">
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Use</a></li>
+                    <li><a href="#accessibility">Accessibility Statement</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="accessibility-note" style="margin-top: 1rem; background-color: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+                <strong>Accessibility:</strong> Footer uses <code>role="contentinfo"</code> and contains site-wide information and secondary navigation.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

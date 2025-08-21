@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO and document metadata -->
+    <title>HTML5 Document Structure - Complete Guide</title>
+    <meta name="description" content="Learn proper HTML5 document structure with DOCTYPE, semantic elements, and accessibility best practices.">
+    <meta name="keywords" content="HTML5, DOCTYPE, document structure, semantic HTML, accessibility">
+    <meta name="author" content="HTML Fundamentals Guide">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#007bff">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .document-structure {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .accessibility-tip {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        nav a:hover, nav a:focus {
+            background-color: #e9ecef;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Site header with proper semantic structure -->
+    <header role="banner">
+        <h1>HTML5 Document Structure Guide</h1>
+        <p>Understanding the foundation of modern web documents</p>
+    </header>
+    
+    <!-- Main navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="#doctype">DOCTYPE</a></li>
+            <li><a href="#html-element">HTML Element</a></li>
+            <li><a href="#head-section">Head Section</a></li>
+            <li><a href="#body-section">Body Section</a></li>
+            <li><a href="#semantic-structure">Semantic Structure</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main content area -->
+    <main id="main-content" role="main" class="document-structure">
+        <!-- DOCTYPE Section -->
+        <section id="doctype" aria-labelledby="doctype-heading">
+            <h2 id="doctype-heading">HTML5 DOCTYPE Declaration</h2>
+            <p>
+                The <span class="highlight">DOCTYPE</span> declaration tells the browser which version of HTML 
+                the document is using. HTML5 simplified this to a clean, memorable declaration.
+            </p>
+            
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+            </div>
+            
+            <div class="accessibility-tip">
+                <strong>Why it matters:</strong> The DOCTYPE ensures the browser renders your page in standards mode, 
+                providing consistent behavior across different browsers and enabling modern HTML5 features.
+            </div>
+            
+            <h3>Comparison with older DOCTYPEs:</h3>
+            <div class="code-block">
+&lt;!-- HTML5 (current) --&gt;
+&lt;!DOCTYPE html&gt;
+
+&lt;!-- XHTML 1.0 Strict (legacy) --&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+
+&lt;!-- HTML 4.01 Transitional (legacy) --&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd"&gt;
+            </div>
+        </section>
+        
+        <!-- HTML Element Section -->
+        <section id="html-element" aria-labelledby="html-heading">
+            <h2 id="html-heading">The HTML Root Element</h2>
+            <p>
+                The <code>&lt;html&gt;</code> element is the root of every HTML document and should always 
+                include the <span class="highlight">lang</span> attribute for accessibility and SEO.
+            </p>
+            
+            <div class="code-block">
+&lt;html lang="en"&gt;
+    &lt;!-- All page content goes here --&gt;
+&lt;/html&gt;
+            </div>
+            
+            <div class="accessibility-tip">
+                <strong>Accessibility:</strong> The <code>lang</code> attribute helps screen readers pronounce 
+                content correctly and assists translation tools. Use specific language codes like "en-US" 
+                for American English or "fr-CA" for Canadian French when needed.
+            </div>
+            
+            <h3>Language Code Examples:</h3>
+            <ul>
+                <li><code>lang="en"</code> - English (general)</li>
+                <li><code>lang="en-US"</code> - American English</li>
+                <li><code>lang="en-GB"</code> - British English</li>
+                <li><code>lang="es"</code> - Spanish</li>
+                <li><code>lang="fr"</code> - French</li>
+                <li><code>lang="de"</code> - German</li>
+                <li><code>lang="ja"</code> - Japanese</li>
+            </ul>
+        </section>
+        
+        <!-- Head Section -->
+        <section id="head-section" aria-labelledby="head-heading">
+            <h2 id="head-heading">The Head Section</h2>
+            <p>
+                The <code>&lt;head&gt;</code> contains metadata about the document that isn't displayed 
+                to users but is crucial for browsers, search engines, and accessibility tools.
+            </p>
+            
+            <h3>Essential Head Elements:</h3>
+            <div class="code-block">
+&lt;head&gt;
+    &lt;!-- Character encoding (must be first) --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    
+    &lt;!-- Viewport for responsive design --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- IE compatibility --&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    
+    &lt;!-- Page title (appears in browser tab) --&gt;
+    &lt;title&gt;Page Title - Site Name&lt;/title&gt;
+    
+    &lt;!-- Meta description for SEO --&gt;
+    &lt;meta name="description" content="Brief description of the page content"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;/head&gt;
+            </div>
+            
+            <div class="accessibility-tip">
+                <strong>Order matters:</strong> The charset declaration should be within the first 1024 bytes 
+                of the document. Place it first in the head section for best compatibility.
+            </div>
+        </section>
+        
+        <!-- Body Section -->
+        <section id="body-section" aria-labelledby="body-heading">
+            <h2 id="body-heading">The Body Section</h2>
+            <p>
+                The <code>&lt;body&gt;</code> contains all visible content and should use semantic HTML5 
+                elements to create a meaningful document structure.
+            </p>
+            
+            <h3>Basic Body Structure:</h3>
+            <div class="code-block">
+&lt;body&gt;
+    &lt;!-- Skip link for accessibility --&gt;
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+    
+    &lt;!-- Site header --&gt;
+    &lt;header role="banner"&gt;
+        &lt;h1&gt;Site Title&lt;/h1&gt;
+        &lt;p&gt;Site tagline or description&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Main navigation --&gt;
+    &lt;nav role="navigation" aria-label="Main navigation"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    
+    &lt;!-- Main content --&gt;
+    &lt;main id="main-content" role="main"&gt;
+        &lt;h2&gt;Page Heading&lt;/h2&gt;
+        &lt;p&gt;Main page content goes here...&lt;/p&gt;
+    &lt;/main&gt;
+    
+    &lt;!-- Site footer --&gt;
+    &lt;footer role="contentinfo"&gt;
+        &lt;p&gt;&copy; 2024 Site Name. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+            </div>
+        </section>
+        
+        <!-- Semantic Structure Section -->
+        <section id="semantic-structure" aria-labelledby="semantic-heading">
+            <h2 id="semantic-heading">Complete Semantic Document Structure</h2>
+            <p>
+                Here's a complete example showing proper HTML5 document structure with all essential elements:
+            </p>
+            
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    
+    &lt;title&gt;Complete HTML5 Document Structure&lt;/title&gt;
+    &lt;meta name="description" content="A complete example of proper HTML5 structure"&gt;
+    &lt;meta name="author" content="Your Name"&gt;
+    
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+    &lt;meta name="theme-color" content="#007bff"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+    
+    &lt;header role="banner"&gt;
+        &lt;h1&gt;Website Title&lt;/h1&gt;
+        &lt;p&gt;Website description or tagline&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;nav role="navigation" aria-label="Main navigation"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    
+    &lt;main id="main-content" role="main"&gt;
+        &lt;section aria-labelledby="intro-heading"&gt;
+            &lt;h2 id="intro-heading"&gt;Introduction&lt;/h2&gt;
+            &lt;p&gt;Welcome to our website...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;section aria-labelledby="features-heading"&gt;
+            &lt;h2 id="features-heading"&gt;Features&lt;/h2&gt;
+            &lt;article&gt;
+                &lt;h3&gt;Feature One&lt;/h3&gt;
+                &lt;p&gt;Description of feature one...&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;h3&gt;Feature Two&lt;/h3&gt;
+                &lt;p&gt;Description of feature two...&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;aside role="complementary" aria-labelledby="sidebar-heading"&gt;
+        &lt;h2 id="sidebar-heading"&gt;Related Information&lt;/h2&gt;
+        &lt;p&gt;Additional content related to the main content...&lt;/p&gt;
+    &lt;/aside&gt;
+    
+    &lt;footer role="contentinfo"&gt;
+        &lt;p&gt;&copy; 2024 Website Name. All rights reserved.&lt;/p&gt;
+        &lt;nav aria-label="Footer navigation"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#privacy"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#terms"&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <div class="accessibility-tip">
+                <strong>Key Accessibility Features:</strong>
+                <ul>
+                    <li>Skip link for keyboard navigation</li>
+                    <li>Proper heading hierarchy (h1 → h2 → h3)</li>
+                    <li>ARIA labels and roles for screen readers</li>
+                    <li>Language attribute on html element</li>
+                    <li>Semantic elements for document structure</li>
+                    <li>Current page indication with aria-current</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Best Practices Section -->
+        <section aria-labelledby="best-practices">
+            <h2 id="best-practices">Document Structure Best Practices</h2>
+            
+            <h3>✅ Do:</h3>
+            <ul>
+                <li>Always include the HTML5 DOCTYPE declaration</li>
+                <li>Set the language attribute on the html element</li>
+                <li>Include charset declaration as the first meta tag</li>
+                <li>Use semantic HTML5 elements (header, nav, main, section, article, aside, footer)</li>
+                <li>Maintain proper heading hierarchy (h1 → h2 → h3, etc.)</li>
+                <li>Include viewport meta tag for responsive design</li>
+                <li>Add skip links for keyboard accessibility</li>
+                <li>Use ARIA labels and roles where appropriate</li>
+            </ul>
+            
+            <h3>❌ Don't:</h3>
+            <ul>
+                <li>Skip the DOCTYPE declaration</li>
+                <li>Use multiple h1 elements on the same page</li>
+                <li>Skip heading levels (h2 directly to h4)</li>
+                <li>Forget the lang attribute on the html element</li>
+                <li>Use div elements when semantic elements are more appropriate</li>
+                <li>Place the charset meta tag after other content</li>
+                <li>Ignore accessibility features like skip links and ARIA labels</li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Site footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 HTML5 Document Structure Guide. Educational content for learning proper HTML structure.</p>
+        <p><small>This page demonstrates HTML5 best practices including semantic structure, accessibility features, and proper metadata.</small></p>
+    </footer>
+</body>
+</html>

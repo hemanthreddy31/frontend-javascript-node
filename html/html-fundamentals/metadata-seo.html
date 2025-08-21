@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Document basics -->
+  <meta charset="utf-8">                                      <!-- MUST be first -->
+  <meta http-equiv="x-ua-compatible" content="IE=edge">      <!-- legacy IE compatibility -->
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- responsive -->
+
+  <!-- SEO / discovery -->
+  <title>Primary keyword — Short brand | Site</title>
+  <meta name="description" content="Short, compelling summary of the page (120–160 chars).">
+  <link rel="canonical" href="https://example.com/path/to/page"> <!-- canonical URL -->
+
+  <!-- Indexing & crawlers -->
+  <meta name="robots" content="index, follow">               <!-- or "noindex, nofollow" per page -->
+  <!-- Per-URL control for specific bots (optional) -->
+  <!-- <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large"> -->
+
+  <!-- Localization -->
+  <meta name="language" content="en">                        <!-- human-readable hint -->
+  <link rel="alternate" href="https://example.com/es/page" hreflang="es"> <!-- for multilingual sites -->
+
+  <!-- Social / rich previews (Open Graph + Twitter Card) -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">               <!-- article for blog posts -->
+  <meta property="og:title" content="Page title for social (<= 60 chars)">
+  <meta property="og:description" content="Short description for social (<= 110–160 chars)">
+  <meta property="og:url" content="https://example.com/path/to/page">
+  <meta property="og:site_name" content="Site name">
+  <meta property="og:image" content="https://example.com/assets/preview-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YourTwitterHandle">
+  <meta name="twitter:title" content="Twitter title (usually same as OG)">
+  <meta name="twitter:description" content="Twitter description">
+  <meta name="twitter:image" content="https://example.com/assets/preview-image.jpg">
+
+  <!-- Mobile / appearance -->
+  <meta name="theme-color" content="#0a84ff">                <!-- browser UI color on mobile -->
+  <meta name="mobile-web-app-capable" content="yes">        <!-- PWA hint -->
+
+  <!-- Performance & preconnect (maintainable lists, keep minimal) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="/assets/css/critical.css"> <!-- critical CSS -->
+
+  <!-- Accessibility -->
+  <!-- declare language on <html lang="en">; meta hints not substitute for proper html lang attr -->
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "url": "https://example.com",
+    "name": "Example Site",
+    "logo": "https://example.com/logo.png"
+  }
+  </script>
+
+  <!-- Favicons (multiple sizes/formats) -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Styles & scripts (minified, versioned) -->
+  <link rel="stylesheet" href="/assets/css/main.min.css?v=20250812">
+  <script defer src="/assets/js/main.min.js?v=20250812"></script>
+</head>
+<body>
+    
+</body>
+</html>
