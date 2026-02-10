@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOM Basics Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Karla:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="paper">
+      <header class="hero">
+        <span class="eyebrow">DOM STUDIO</span>
+        <h1>Cut, paste, and animate the DOM.</h1>
+        <p class="sub">
+          Create nodes, set attributes, and style them live. Every click builds
+          real elements on the page.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="card controls">
+          <h2>Build a note</h2>
+          <p class="hint">Type a note and click add. Click a note to pin.</p>
+
+          <label class="label" for="noteInput">Note text</label>
+          <input
+            id="noteInput"
+            type="text"
+            placeholder="Write something for the wall"
+            maxlength="80"
+          />
+
+          <div class="buttons">
+            <button id="addNote">Add note</button>
+            <button id="shuffleAccent" class="ghost">Shuffle accent</button>
+            <button id="clearNotes" class="ghost">Clear wall</button>
+          </div>
+
+          <div class="preview">
+            <p class="label">Live preview</p>
+            <div class="note preview-note" id="previewNote">
+              Your note appears here
+            </div>
+          </div>
+        </section>
+
+        <section class="card wall">
+          <div class="wall-header">
+            <h2>Note wall</h2>
+            <span id="count" class="count">1 note</span>
+          </div>
+          <div id="noteWall" class="note-wall">
+            <article class="note seeded" style="--rotate: -2deg">
+              <div class="note-top">
+                <span class="stamp">PINNED</span>
+                <span class="note-tag">DOM</span>
+              </div>
+              <p class="note-text">Click any note to pin it.</p>
+              <span class="note-meta">id 001</span>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Tip: press Enter to add a note. Try shuffling the accent color.
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

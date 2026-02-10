@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fetch Signals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <p class="eyebrow">FETCH SIGNALS</p>
+        <h1>Async data, decoded.</h1>
+        <p class="sub">
+          Use fetch + async/await to pull data. This console shows loading,
+          success, and error states.
+        </p>
+      </header>
+
+      <section class="panel controls">
+        <div class="buttons">
+          <button id="loadBtn">Load transmissions</button>
+          <button id="abortBtn" class="ghost">Abort</button>
+        </div>
+        <div id="status" class="status">Status: idle</div>
+      </section>
+
+      <section class="panel feed">
+        <div class="feed-head">
+          <h2>Latest packets</h2>
+          <span id="latency">—</span>
+        </div>
+        <div id="cards" class="cards"></div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

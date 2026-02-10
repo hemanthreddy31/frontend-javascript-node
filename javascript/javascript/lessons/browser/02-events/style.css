@@ -1,0 +1,251 @@
+:root {
+  --bg: #ffe9c7;
+  --bg-2: #e3f7f0;
+  --ink: #181414;
+  --accent: #ff5c3f;
+  --accent-2: #1a7f68;
+  --accent-3: #f9b233;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(160deg, var(--bg), var(--bg-2));
+  min-height: 100vh;
+}
+
+.scene {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px 72px;
+  position: relative;
+}
+
+.scene::before,
+.scene::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+.scene::before {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #ff5c3f 0%, transparent 60%);
+  top: -60px;
+  right: -40px;
+}
+
+.scene::after {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #1a7f68 0%, transparent 60%);
+  bottom: -100px;
+  left: -60px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: "Bungee", cursive;
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+.sub {
+  max-width: 650px;
+  font-size: 1.1rem;
+}
+
+.lab {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tile {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 16px 30px rgba(24, 20, 20, 0.12);
+  position: relative;
+  overflow: hidden;
+  animation: liftIn 0.6s ease both;
+}
+
+.tile.highlight {
+  border: 2px solid var(--accent);
+}
+
+.tile:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.tile:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.tile:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.tile:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.tile.wide {
+  grid-column: span 2;
+}
+
+button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 92, 63, 0.35);
+}
+
+button.pop {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(255, 92, 63, 0.4);
+}
+
+.metric {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-top: 14px;
+  color: var(--accent-2);
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+}
+
+.mirror {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #f4f4f4;
+  font-weight: 600;
+}
+
+.key {
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 18px;
+  background: #181414;
+  color: #ffffff;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tasks {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.tasks li {
+  background: #fdf2ea;
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tasks li.done {
+  background: #d9f2ea;
+  text-decoration: line-through;
+}
+
+.pad {
+  position: relative;
+  height: 220px;
+  border-radius: 24px;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), #fff6c9, #ffe1a1);
+  border: 2px dashed rgba(24, 20, 20, 0.2);
+  overflow: hidden;
+}
+
+.pulse {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-3);
+  top: calc(var(--y, 50%) - 15px);
+  left: calc(var(--x, 50%) - 15px);
+  box-shadow: 0 0 24px rgba(249, 178, 51, 0.6);
+  transition: transform 0.1s ease;
+}
+
+.pad span {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-weight: 600;
+}
+
+@keyframes liftIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .lab {
+    grid-template-columns: 1fr;
+  }
+
+  .tile.wide {
+    grid-column: span 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Events Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <header class="hero">
+        <p class="eyebrow">EVENTS LAB</p>
+        <h1>Trigger, listen, react.</h1>
+        <p class="sub">
+          Clicks, keys, and motion all fire events. This playground lets you
+          see them immediately.
+        </p>
+      </header>
+
+      <main class="lab">
+        <section class="tile highlight">
+          <h2>Click Reactor</h2>
+          <p>Every click increments the counter and triggers a pop.</p>
+          <button id="countBtn">Tap me</button>
+          <div class="metric" id="countValue">0</div>
+        </section>
+
+        <section class="tile">
+          <h2>Typing Mirror</h2>
+          <p>Input events update the mirror live.</p>
+          <input id="mirrorInput" placeholder="Type something" />
+          <div class="mirror" id="mirrorOutput">Start typing...</div>
+        </section>
+
+        <section class="tile">
+          <h2>Key Watcher</h2>
+          <p>Press any key. Esc clears the display.</p>
+          <div class="key" id="keyOutput">—</div>
+        </section>
+
+        <section class="tile">
+          <h2>Delegation List</h2>
+          <p>One listener handles every task in the list.</p>
+          <div class="row">
+            <input id="taskInput" placeholder="Add a task" />
+            <button id="taskAdd">Add</button>
+          </div>
+          <ul class="tasks" id="taskList">
+            <li>Learn click events</li>
+            <li>Handle key presses</li>
+            <li>Use event delegation</li>
+          </ul>
+        </section>
+
+        <section class="tile wide">
+          <h2>Pointer Pulse</h2>
+          <p>Move inside the pad to fire mousemove events.</p>
+          <div class="pad" id="pulsePad">
+            <div class="pulse" id="pulseDot"></div>
+            <span id="pulseReadout">x: 0% · y: 0%</span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
